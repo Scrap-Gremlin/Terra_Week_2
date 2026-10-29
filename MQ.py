@@ -11,8 +11,8 @@ def is_positive(int):
     elif int > 0:
         return int 
 dmg = [2, 3, 5, 0]
-m_health = "===================="
-p_health = "===================="
+m_health = "=" * m_hp
+p_health = "=" * p_hp
 p_spc = ""
 m_spc = ""
 def dead(a):
@@ -40,6 +40,8 @@ print(f"Attacks:{" " * 40}")
 print("Bonk.....2dmg\nSwipe....3dmg\nBoom.....5dmg")
 print(line)
 while m_hp > 0 or p_hp > 0:
+    m_health = "=" * m_hp
+    p_health = "=" * p_hp
     trn_num = trn_num_list[trn]
     wt = 0
     while turn == 0:
@@ -95,8 +97,8 @@ while m_hp > 0 or p_hp > 0:
                 pmv_i = 3
                 wait = 0
     if m_hp > 0:
-        m_health = damager(m_health,dmg[pmv_i])
         m_hp = m_hp - dmg[pmv_i]
+        m_health = "=" * m_hp
     else:
         m_health = ""
         m_hp = 0
@@ -135,7 +137,7 @@ while m_hp > 0 or p_hp > 0:
     print(line)
     p_hp = p_hp - dmg[mmv_i]
     if p_hp > 0:
-        p_health = damager(p_health,dmg[mmv_i])
+        p_health = "=" * p_hp
     else:
         p_health = ""
     p_spc = (p_spc + (" " * (dmg[mmv_i])))[:20]
@@ -161,8 +163,6 @@ while m_hp > 0 or p_hp > 0:
             p_hp = 20
             m_hp = 20
             ag = 1
-            m_health = "===================="
-            p_health = "===================="
             p_spc = ""
             m_spc = ""
             limit_swipe = 0
@@ -180,8 +180,6 @@ while m_hp > 0 or p_hp > 0:
             p_hp = 20
             m_hp = 20
             ag = 1
-            m_health = "===================="
-            p_health = "===================="
             p_spc = ""
             m_spc = ""
             limit_swipe = 0
@@ -202,8 +200,6 @@ while m_hp > 0 or p_hp > 0:
             p_hp = 10
             m_hp = 10
             ag = 1
-            m_health = "=========="
-            p_health = "=========="
             p_spc = ""
             m_spc = ""
             limit_swipe = 0
